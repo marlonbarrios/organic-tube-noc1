@@ -1,7 +1,7 @@
 //Self-drawing Folding structure organic tube like
 
 //create walker and dont' erase traces with the size of the ellispse with perlin noise to look more organic
-
+//https://marlonbarrios.github.io/organic-tube-noc1/
 var w;
 
 function setup() {
@@ -44,9 +44,14 @@ function Walker() {
     // Draw Walker as circle
 
       fill(200);
-     
+    // Perlin Noise to make it oooks more organic
         ellipse(this.pos.x - 100, this.pos.y - 100 , noise(width)* 200, noise(height)* 200);
       
   
   }
+
+ 
 }
+function mousePressed() {
+  saveFrames('foldingtube', 'png', 1, 1)
+  }
