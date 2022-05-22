@@ -58,10 +58,12 @@ function Walker() {
 
   this.update = function() {
    
-    var space = createVector(random(width), random(height));
+  var space = createVector(random(width), random(height));
+   
 
     // Vector pointing from Walker to randon direction 
     this.acc = p5.Vector.sub(space, this.pos);
+    this.acc.mult(0.01);
     // Setting the magnitude of that vector
     this.acc.setMag(0.01);
 
@@ -87,5 +89,5 @@ function Walker() {
  
 }
 function mousePressed() {
-  saveFrames('foldingtube', 'png', 1, 1)
+  saveFrames('morphing_rainbows', 'png', 1, 1)
   }
