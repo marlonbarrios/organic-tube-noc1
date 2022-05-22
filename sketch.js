@@ -1,14 +1,29 @@
-//Self-drawing Folding structure organic tube like
+//Self-drawing Folding structure organic tube like in randon colors leavinf traces.
+//Black lines border
+//random color background.
 
-//create walker and dont' erase traces with the size of the ellispse with perlin noise to look more organic
+//Perlin noise algorithm to look more organic
 //https://marlonbarrios.github.io/organic-tube-noc1/
+
 var w;
+var w2;
+var w3;
+var w4;
 
 function setup() {
   createCanvas(1400, 800);
   // Make a Walker object
   w = new Walker();
-background(156, 9, 51)
+  w2 = new Walker();
+ w3 = new Walker();
+ w4 = new Walker();
+ w5 = new Walker();
+ w6 = new Walker();
+ w7 = new Walker();
+
+ background(Math.random(255) * 100, Math.random(255) * 100,Math.random(255) * 100)
+
+
 }
 
 function draw() {
@@ -16,6 +31,21 @@ function draw() {
   // Update and display object
   w.update();
   w.display();
+  w2.update();
+  w2.display();
+  w3.update();
+  w3.display();
+  w4.update();
+  w4.display();
+  w5.update();
+  w5.display();
+  w6.update();
+  w6.display();
+  w7.update();
+  w7.display();
+  // w3.update();
+  // w3.display();
+
 
 }
 
@@ -33,7 +63,7 @@ function Walker() {
     // Vector pointing from Walker to randon direction 
     this.acc = p5.Vector.sub(space, this.pos);
     // Setting the magnitude of that vector
-    this.acc.setMag(0.1);
+    this.acc.setMag(0.01);
 
     // Physics engine algorithm
     this.vel.add(this.acc);
@@ -43,12 +73,16 @@ function Walker() {
   this.display = function() {
     // Draw Walker as circle
 
-      fill(200);
+    fill(Math.random(255) * 100, Math.random(255) * 100,Math.random(255) * 100)
     // Perlin Noise to make it oooks more organic
-        ellipse(this.pos.x - 100, this.pos.y - 100 , noise(width)* 200, noise(height)* 200);
+     
+    stroke(0)
+    // Perlin Noise to make it oooks more organic
+        ellipse(this.pos.x , this.pos.y  , noise(width)* 150, noise(height)* 150);
       
   
   }
+
 
  
 }
