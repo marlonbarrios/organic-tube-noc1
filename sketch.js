@@ -5,13 +5,19 @@
 //Perlin noise algorithm to look more organic
 //https://marlonbarrios.github.io/organic-tube-noc1/
 
+
+
+
 var w;
 var w2;
 var w3;
 var w4;
+var w5;
+var w6;
+var w7;
 
 function setup() {
-  createCanvas(1400, 800);
+  createCanvas(windowWidth, windowHeight);
   // Make a Walker object
   w = new Walker();
   w2 = new Walker();
@@ -22,8 +28,6 @@ function setup() {
  w7 = new Walker();
 
  background(Math.random(255) * 100, Math.random(255) * 100,Math.random(255) * 100)
-
-
 }
 
 function draw() {
@@ -43,11 +47,11 @@ function draw() {
   w6.display();
   w7.update();
   w7.display();
-  // w3.update();
-  // w3.display();
-
-
+ 
 }
+
+
+ 
 
 function Walker() {
 
@@ -63,17 +67,21 @@ function Walker() {
 
     // Vector pointing from Walker to randon direction 
     this.acc = p5.Vector.sub(space, this.pos);
-    this.acc.mult(0.01);
+    this.acc.mult(0.02);
     // Setting the magnitude of that vector
-    this.acc.setMag(0.01);
+    this.acc.setMag(0.02);
 
     // Physics engine algorithm
     this.vel.add(this.acc);
     this.pos.add(this.vel);
   }
+  
 
-  this.display = function() {
+this.display = function() {
     // Draw Walker as circle
+ // map mouseY to modulator freq between a maximum and minimum frequency
+
+
 
     fill(Math.random(255) * 100, Math.random(255) * 100,Math.random(255) * 100)
     // Perlin Noise to make it oooks more organic
@@ -81,13 +89,11 @@ function Walker() {
     stroke(0)
     // Perlin Noise to make it oooks more organic
         ellipse(this.pos.x , this.pos.y  , noise(width)* 150, noise(height)* 150);
-      
-  
+    
   }
-
-
- 
 }
+
+
 function mousePressed() {
   saveFrames('morphing_rainbows', 'png', 1, 1)
   }
