@@ -27,7 +27,7 @@ function setup() {
  w6 = new Walker();
  w7 = new Walker();
 
- background(Math.random(255) * 100, Math.random(255) * 100,Math.random(255) * 100)
+ background(255)
 }
 
 function draw() {
