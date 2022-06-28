@@ -83,8 +83,8 @@ this.display = function() {
 
 
 
-    fill(Math.random(255) , random(255), random(255) * 100)
-    // Perlin Noise to make it oooks more organic
+    fill(random(255) , random(255), random(255))
+
      
     stroke(0)
     // Perlin Noise to make it oooks more organic
